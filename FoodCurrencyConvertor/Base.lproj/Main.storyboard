@@ -114,6 +114,9 @@
                                     </button>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iz0-Ii-0g9" userLabel="currencyPicker">
                                         <rect key="frame" x="118.5" y="0.0" width="118" height="150"/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="a3Y-6H-qHD"/>
+                                        </connections>
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XKD-eC-3KC" userLabel="totalLabel">
                                         <rect key="frame" x="236.5" y="50" width="118.5" height="50"/>
