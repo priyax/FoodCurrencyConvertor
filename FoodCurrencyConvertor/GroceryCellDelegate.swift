@@ -9,5 +9,7 @@
 import Foundation
 
 protocol GroceryCellDelegate {
-  func didSelectBtn(_ tag: Int) 
+  func didAddItem(_ tag: Int)
+  func didRemoveItem(_ tag: Int)  
+ 
 }

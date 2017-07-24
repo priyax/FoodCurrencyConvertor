@@ -23,14 +23,20 @@ class GroceryCell: UITableViewCell {
         // Configure the view for the selected state
     }
   
-  
-  @IBAction func selectBtn(_ sender: UIButton) {
-    groceryCellDelegate?.didSelectBtn(self.tag)
+  //Action buttons
+  @IBAction func addItem(_ sender: UIButton) {
+    groceryCellDelegate?.didAddItem(self.tag)
   }
   
-  @IBOutlet weak var nameLabel: UILabel!
-
-  @IBOutlet weak var priceLabel: UILabel!
+  @IBAction func removeItem(_ sender: Any) {
+    groceryCellDelegate?.didRemoveItem(self.tag)
+  }
   
+  //Outlets
+  @IBOutlet weak var nameLabel: UILabel!
+  
+  @IBOutlet weak var qtyLabel: UILabel!
+
+ 
   
 }

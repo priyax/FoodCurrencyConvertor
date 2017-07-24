@@ -20,12 +20,17 @@ class ViewController: UIViewController {
   @IBOutlet weak var totalLabel: UILabel!
   @IBOutlet weak var tableView: UITableView!
   
+  //Variables
   struct GroceryItem {
     var name: String
     var price: Float
+    var qty: Int
   }
   
-  var groceryList: [GroceryItem] = [GroceryItem(name:"Peas: $ 0,95 per bag",price: 0.95),GroceryItem(name:"Eggs: $ 2,10 per dozen",price: 2.10),GroceryItem(name:"Milk: $ 1,30 per bottle",price: 1.30),GroceryItem(name:"Beans: $ 0,73 per can",price: 0.73)]
+  var checkoutTotalUSD: Float = 0.0
+  var currencyMultiplier: Float = 1.0
+  
+  var groceryList: [GroceryItem] = [GroceryItem(name:"Peas: $ 0,95 per bag",price: 0.95, qty: 0),GroceryItem(name:"Eggs: $ 2,10 per dozen",price: 2.10, qty: 0),GroceryItem(name:"Milk: $ 1,30 per bottle",price: 1.30, qty: 0),GroceryItem(name:"Beans: $ 0,73 per can",price: 0.73, qty: 0)]
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -50,12 +55,28 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, GroceryCel
     let row = (indexPath as NSIndexPath).row
     let cell = tableView.dequeueReusableCell(withIdentifier: "groceryCell", for: indexPath) as! GroceryCell
     cell.nameLabel.text = groceryList[row].name
+    cell.qtyLabel.text = String(groceryList[row].qty)
     cell.groceryCellDelegate = self
     cell.tag = row
     return cell
   }
   
-  func didSelectBtn(_ tag: Int) {
-    print("I have pressed a button with a tag \(tag)")
+  func didAddItem(_ tag: Int) {
+    print("I have added an item with a price tag \(self.groceryList[tag].price)")
+    checkoutTotalUSD +=  self.groceryList[tag].price
+    self.groceryList[tag].qty += 1
+    print(checkoutTotalUSD)
+    tableView.reloadData()
+  }
+  
+  func didRemoveItem(_ tag: Int) {
+   
+    if self.groceryList[tag].qty > 0  {
+      checkoutTotalUSD -= self.groceryList[tag].price
+      self.groceryList[tag].qty -= 1
+       print(checkoutTotalUSD)
+       print("I have removed an item with a price tag \(self.groceryList[tag].price)")
+      tableView.reloadData()
+    }
   }
 }
