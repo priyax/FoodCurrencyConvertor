@@ -13,6 +13,7 @@
 		01AD15241F26772300EA417A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01AD15231F26772300EA417A /* Assets.xcassets */; };
 		01AD15271F26772300EA417A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01AD15251F26772300EA417A /* LaunchScreen.storyboard */; };
 		01AD152F1F26783800EA417A /* GroceryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD152E1F26783800EA417A /* GroceryCell.swift */; };
+		01AD15311F26934D00EA417A /* GroceryCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD15301F26934D00EA417A /* GroceryCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		01AD15261F26772300EA417A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		01AD15281F26772300EA417A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01AD152E1F26783800EA417A /* GroceryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryCell.swift; sourceTree = "<group>"; };
+		01AD15301F26934D00EA417A /* GroceryCellDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				01AD15251F26772300EA417A /* LaunchScreen.storyboard */,
 				01AD15281F26772300EA417A /* Info.plist */,
 				01AD152E1F26783800EA417A /* GroceryCell.swift */,
+				01AD15301F26934D00EA417A /* GroceryCellDelegate.swift */,
 			);
 			path = FoodCurrencyConvertor;
 			sourceTree = "<group>";
@@ -142,6 +145,7 @@
 			files = (
 				01AD151F1F26772200EA417A /* ViewController.swift in Sources */,
 				01AD151D1F26772200EA417A /* AppDelegate.swift in Sources */,
+				01AD15311F26934D00EA417A /* GroceryCellDelegate.swift in Sources */,
 				01AD152F1F26783800EA417A /* GroceryCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -308,6 +312,7 @@
 				01AD152D1F26772300EA417A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
