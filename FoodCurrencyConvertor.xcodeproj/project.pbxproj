@@ -1,0 +1,315 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01AD151D1F26772200EA417A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD151C1F26772200EA417A /* AppDelegate.swift */; };
+		01AD151F1F26772200EA417A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD151E1F26772200EA417A /* ViewController.swift */; };
+		01AD15221F26772200EA417A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01AD15201F26772200EA417A /* Main.storyboard */; };
+		01AD15241F26772300EA417A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 01AD15231F26772300EA417A /* Assets.xcassets */; };
+		01AD15271F26772300EA417A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01AD15251F26772300EA417A /* LaunchScreen.storyboard */; };
+		01AD152F1F26783800EA417A /* GroceryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD152E1F26783800EA417A /* GroceryCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		01AD15191F26772200EA417A /* FoodCurrencyConvertor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodCurrencyConvertor.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		01AD151C1F26772200EA417A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		01AD151E1F26772200EA417A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		01AD15211F26772200EA417A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		01AD15231F26772300EA417A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		01AD15261F26772300EA417A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		01AD15281F26772300EA417A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		01AD152E1F26783800EA417A /* GroceryCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryCell.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		01AD15161F26772200EA417A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		01AD15101F26772200EA417A = {
+			isa = PBXGroup;
+			children = (
+				01AD151B1F26772200EA417A /* FoodCurrencyConvertor */,
+				01AD151A1F26772200EA417A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		01AD151A1F26772200EA417A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				01AD15191F26772200EA417A /* FoodCurrencyConvertor.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		01AD151B1F26772200EA417A /* FoodCurrencyConvertor */ = {
+			isa = PBXGroup;
+			children = (
+				01AD151C1F26772200EA417A /* AppDelegate.swift */,
+				01AD151E1F26772200EA417A /* ViewController.swift */,
+				01AD15201F26772200EA417A /* Main.storyboard */,
+				01AD15231F26772300EA417A /* Assets.xcassets */,
+				01AD15251F26772300EA417A /* LaunchScreen.storyboard */,
+				01AD15281F26772300EA417A /* Info.plist */,
+				01AD152E1F26783800EA417A /* GroceryCell.swift */,
+			);
+			path = FoodCurrencyConvertor;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		01AD15181F26772200EA417A /* FoodCurrencyConvertor */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 01AD152B1F26772300EA417A /* Build configuration list for PBXNativeTarget "FoodCurrencyConvertor" */;
+			buildPhases = (
+				01AD15151F26772200EA417A /* Sources */,
+				01AD15161F26772200EA417A /* Frameworks */,
+				01AD15171F26772200EA417A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FoodCurrencyConvertor;
+			productName = FoodCurrencyConvertor;
+			productReference = 01AD15191F26772200EA417A /* FoodCurrencyConvertor.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		01AD15111F26772200EA417A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Copper Mobile";
+				TargetAttributes = {
+					01AD15181F26772200EA417A = {
+						CreatedOnToolsVersion = 8.3.3;
+						DevelopmentTeam = SKJ49N4758;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 01AD15141F26772200EA417A /* Build configuration list for PBXProject "FoodCurrencyConvertor" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 01AD15101F26772200EA417A;
+			productRefGroup = 01AD151A1F26772200EA417A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				01AD15181F26772200EA417A /* FoodCurrencyConvertor */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		01AD15171F26772200EA417A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01AD15271F26772300EA417A /* LaunchScreen.storyboard in Resources */,
+				01AD15241F26772300EA417A /* Assets.xcassets in Resources */,
+				01AD15221F26772200EA417A /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		01AD15151F26772200EA417A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				01AD151F1F26772200EA417A /* ViewController.swift in Sources */,
+				01AD151D1F26772200EA417A /* AppDelegate.swift in Sources */,
+				01AD152F1F26783800EA417A /* GroceryCell.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		01AD15201F26772200EA417A /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01AD15211F26772200EA417A /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		01AD15251F26772300EA417A /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01AD15261F26772300EA417A /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		01AD15291F26772300EA417A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		01AD152A1F26772300EA417A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		01AD152C1F26772300EA417A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SKJ49N4758;
+				INFOPLIST_FILE = FoodCurrencyConvertor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coppermobile.FoodCurrencyConvertor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		01AD152D1F26772300EA417A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = SKJ49N4758;
+				INFOPLIST_FILE = FoodCurrencyConvertor/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.coppermobile.FoodCurrencyConvertor;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		01AD15141F26772200EA417A /* Build configuration list for PBXProject "FoodCurrencyConvertor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01AD15291F26772300EA417A /* Debug */,
+				01AD152A1F26772300EA417A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		01AD152B1F26772300EA417A /* Build configuration list for PBXNativeTarget "FoodCurrencyConvertor" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				01AD152C1F26772300EA417A /* Debug */,
+				01AD152D1F26772300EA417A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 01AD15111F26772200EA417A /* Project object */;
+}
