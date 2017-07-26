@@ -63,7 +63,6 @@ class ViewController: UIViewController {
   // Action buttons
   @IBAction func checkoutBtn(_ sender: UIButton) {
     self.totalLabel.text = String(format: " %.2f", checkoutTotalUSD * currencyMultiplier) + "  " + selectedCurrency
-    
   }
   
   //gets updated currency list
@@ -86,29 +85,36 @@ class ViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)}
       else {
-        if let data = data {
-          do {
-            let jSONDictionary = try JSONSerialization.jsonObject(with: data, options: []) as! NSDictionary
-            
-            let rateDictionary = jSONDictionary["quotes"] as! NSDictionary
-            let rateAUD = rateDictionary["USDAUD"] as! Float
-            let rateCHF = rateDictionary["USDCHF"] as! Float
-            let rateEUR = rateDictionary["USDEUR"] as! Float
-            let rateGBP = rateDictionary["USDGBP"] as! Float
-            let ratePLN = rateDictionary["USDPLN"] as! Float
-            
-            self.currencyData.append(CurrencyList(country: "AUD", rate: rateAUD))
-            self.currencyData.append(CurrencyList(country: "CHF", rate: rateCHF))
-            self.currencyData.append(CurrencyList(country: "EUR", rate: rateEUR))
-            self.currencyData.append(CurrencyList(country: "GBP", rate: rateGBP))
-            self.currencyData.append(CurrencyList(country: "PLN", rate: ratePLN))
-            
-            DispatchQueue.main.async {
-              self.currencyPicker.reloadAllComponents()
+        
+          if JSONSerialization.isValidJSONObject(data as Any) {
+            do {
+              let jSONDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
+              
+              let rateDictionary = jSONDictionary["quotes"] as! NSDictionary
+              let rateAUD = rateDictionary["USDAUD"] as! Float
+              let rateCHF = rateDictionary["USDCHF"] as! Float
+              let rateEUR = rateDictionary["USDEUR"] as! Float
+              let rateGBP = rateDictionary["USDGBP"] as! Float
+              let ratePLN = rateDictionary["USDPLN"] as! Float
+              
+              self.currencyData.append(CurrencyList(country: "AUD", rate: rateAUD))
+              self.currencyData.append(CurrencyList(country: "CHF", rate: rateCHF))
+              self.currencyData.append(CurrencyList(country: "EUR", rate: rateEUR))
+              self.currencyData.append(CurrencyList(country: "GBP", rate: rateGBP))
+              self.currencyData.append(CurrencyList(country: "PLN", rate: ratePLN))
+              
+              DispatchQueue.main.async {
+                self.currencyPicker.reloadAllComponents()
+              }
             }
+            catch {
+              let alert = UIAlertController(title: "Data serialization error", message: error.localizedDescription, preferredStyle: .alert)
+              
+              self.present(alert, animated: true, completion: nil)
+              print("\(error.localizedDescription)")}
           }
-          catch { print("\(error.localizedDescription)")}
-        }
+        
+          else {  print("Currency rates not available")}
         
       }})
     
@@ -177,6 +183,6 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     currencyMultiplier = currencyData[row].rate
     selectedCurrency = currencyData[row].country
-    print(currencyMultiplier)
+    print("The currency conversion rate = \(currencyMultiplier)")
   }
 }
