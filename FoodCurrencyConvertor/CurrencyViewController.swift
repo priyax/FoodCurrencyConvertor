@@ -23,15 +23,17 @@ class CurrencyViewController: UIViewController {
   var checkoutTotalUSD: Float = 0.0
   var currencyMultiplier: Float = 1.0
   var selectedCurrency = "USD"
-  var currencyData : [CurrencyExchangeRate] = [CurrencyExchangeRate(currency:"USD",rate: 1.0)]
+  var currencyData : [CurrencyExchangeRate] = [CurrencyExchangeRate(currency: "USD", rate: 1.0)]
   var numberFormatter = NumberFormatter()
   
-  var groceryList: [GroceryItem] = [GroceryItem(name:"Peas: $ 0,95 per bag",price: 0.95, qty: 0),GroceryItem(name:"Eggs: $ 2,10 per dozen",price: 2.10, qty: 0),GroceryItem(name:"Milk: $ 1,30 per bottle",price: 1.30, qty: 0),GroceryItem(name:"Beans: $ 0,73 per can",price: 0.73, qty: 0)]
+  var groceryList = [GroceryItem]()
+  
   
   override func viewDidLoad() {
     super.viewDidLoad()
     tableView.delegate = self
     currencyPicker.delegate = self
+    loadGroceryList()
     loadCurrencyData()
     NotificationCenter.default.addObserver(self, selector: #selector(refreshRatesCall), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
   }
@@ -61,63 +63,94 @@ class CurrencyViewController: UIViewController {
     return result
   }
   
-  //gets updated currency list
-  func loadCurrencyData() {
+  //loadGroceryList
+  
+  func readFileFromResources(fileName: String, fileType: String, encoding: String.Encoding = String.Encoding.utf8) -> String {
     
-    //make API call
+    let absoluteFilePath = Bundle.main.path(forResource: fileName, ofType: fileType)
     
-    let urlRates = "http://www.apilayer.net/api/live"
-    let parameterString = "access_key=1d5f49755791b82322fc09165b2f1f97&currencies=AUD,CHF,EUR,GBP,PLN&format=1"
-    let requestURL = URL(string: "\(urlRates)?\(parameterString)")
-    
-    print("URL REQUEST =\(String(describing: requestURL))")
-    let session = URLSession.shared
-    
-    
-    let task = session.dataTask(with: requestURL!, completionHandler: {(data, response, error) in
+    if let absoluteFilePath = absoluteFilePath {
       
-      if let error = error {
-        let alert = UIAlertController(title: "The API returned an error", message: error.localizedDescription, preferredStyle: .alert)
+      if let fileData = try? Data.init(contentsOf: URL(fileURLWithPath: absoluteFilePath)) {
         
-        self.present(alert, animated: true, completion: nil)}
-      else {
+        if let fileAsString = NSString(data: fileData, encoding: encoding.rawValue) {
+          return fileAsString as String
+        } else {
+          print("readFileFromResources failed on: \(fileName). Failed to convert data to String!")
+          return  ""
+        }
         
-          if JSONSerialization.isValidJSONObject(data as Any) {
-            do {
-              let jSONDictionary = try JSONSerialization.jsonObject(with: data!, options: []) as! NSDictionary
-              
-              let rateDictionary = jSONDictionary["quotes"] as! NSDictionary
-              let rateAUD = rateDictionary["USDAUD"] as! Float
-              let rateCHF = rateDictionary["USDCHF"] as! Float
-              let rateEUR = rateDictionary["USDEUR"] as! Float
-              let rateGBP = rateDictionary["USDGBP"] as! Float
-              let ratePLN = rateDictionary["USDPLN"] as! Float
-              
-              self.currencyData.append(CurrencyExchangeRate(currency: "AUD", rate: rateAUD))
-              self.currencyData.append(CurrencyExchangeRate(currency: "CHF", rate: rateCHF))
-              self.currencyData.append(CurrencyExchangeRate(currency: "EUR", rate: rateEUR))
-              self.currencyData.append(CurrencyExchangeRate(currency: "GBP", rate: rateGBP))
-              self.currencyData.append(CurrencyExchangeRate(currency: "PLN", rate: ratePLN))
-              
-              DispatchQueue.main.async {
-                self.currencyPicker.reloadAllComponents()
-              }
-            }
-            catch {
-              let alert = UIAlertController(title: "Data serialization error", message: error.localizedDescription, preferredStyle: .alert)
-              
-              self.present(alert, animated: true, completion: nil)
-              print("\(error.localizedDescription)")}
-          }
-        
-          else {  print("Currency rates not available")}
-        
-      }})
+      } else {
+        print("readFileFromResources failed on: \(fileName). Failed to load any data!")
+        return  ""
+      }
+    }
     
-    task.resume()
-    
+    print("readFileFromResources failed on: \(fileName). File does not exist!")
+    return  ""
+  }
+
+  func loadGroceryList() {
+    let jsonString = readFileFromResources(fileName: "groceryItems", fileType: ".json")
+    let jsonData = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+    do {
+    let groceryArray = try JSONSerialization.jsonObject(with:jsonData, options: []) as! NSArray
+    for item in groceryArray {
+      let itemDictionary = item as! NSDictionary
+      let name = itemDictionary["name"] as! String
+      let price = itemDictionary["price"] as! Float
+      let qty = itemDictionary["qty"] as! Int
+      
+      groceryList.append(GroceryItem(name: name, price: price, qty: qty))
+    }
+    }catch {
+       print("Serialization error")
+      }
   }
   
+  //gets updated currency list
+  
+  func loadCurrencyData() {
+    
+    let url = URL(string: "http://www.apilayer.net/api/live?access_key=1d5f49755791b82322fc09165b2f1f97&currencies=AUD,CHF,EUR,GBP,PLN&format=1")!
+    
+    let session = URLSession.shared
+    
+    let task = session.dataTask(with: url, completionHandler: { (data, response, error) in
+      
+      if error == nil {
+        
+        do {
+          let jsonDict = try JSONSerialization.jsonObject(with: data!, options: [] ) as! NSDictionary
+          
+          let source = (jsonDict["source"] as? String)!
+          print("source = \(source)")
+          
+          let quotesDict = (jsonDict["quotes"] as? NSDictionary)!
+        
+          
+          for (key, value) in quotesDict {
+            print("\(key as! String) = \(value as! Float)")
+            var key = key as! String
+            key = key.replacingOccurrences(of: "USD", with: "")
+            self.currencyData.append(CurrencyExchangeRate(currency: key, rate: value as! Float))
+          }
+          
+          DispatchQueue.main.async {
+            self.currencyPicker.reloadAllComponents()
+          }
+
+        } catch {
+          print("NSData or NSJSONSerialization Error: \(error)")
+        }
+        
+      } else {
+        print("NSURLSession Error: \(String(describing: error))")
+      }
+    })
+    
+    task.resume()
+  }
 }
 
 extension CurrencyViewController: UITableViewDataSource, UITableViewDelegate, GroceryCellDelegate {

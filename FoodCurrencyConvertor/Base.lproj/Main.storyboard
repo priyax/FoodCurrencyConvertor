@@ -26,7 +26,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n5l-fr-Mdz">
-                                <rect key="frame" x="10" y="50" width="355" height="497"/>
+                                <rect key="frame" x="10" y="50" width="355" height="507"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="groceryCell" rowHeight="80" id="Ygb-Rg-cUN" customClass="GroceryCell" customModule="FoodCurrencyConvertor" customModuleProvider="target">
@@ -101,30 +101,27 @@
                                 </connections>
                             </tableView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ljr-1i-3EV">
-                                <rect key="frame" x="10" y="557" width="355" height="100"/>
+                                <rect key="frame" x="10" y="567" width="355" height="50"/>
                                 <subviews>
                                     <pickerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iz0-Ii-0g9" userLabel="currencyPicker">
-                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="100"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="50"/>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <outlet property="dataSource" destination="BYZ-38-t0r" id="a3Y-6H-qHD"/>
                                         </connections>
                                     </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNU-0Z-AQn" userLabel="checkoutBtn">
-                                        <rect key="frame" x="118.5" y="25" width="118" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="y2p-4y-qh7"/>
-                                        </constraints>
+                                        <rect key="frame" x="118.5" y="1" width="118" height="48"/>
                                         <state key="normal" image="checkout"/>
                                         <connections>
                                             <action selector="checkoutBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JHX-0O-16X"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="XKD-eC-3KC" userLabel="totalLabel">
-                                        <rect key="frame" x="236.5" y="25" width="118.5" height="50"/>
+                                        <rect key="frame" x="236.5" y="0.0" width="118.5" height="50"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="V8k-gI-Ak0"/>
+                                            <constraint firstAttribute="height" constant="50" id="TBW-hs-wfB"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
@@ -132,7 +129,7 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="100" id="juJ-1J-Lqd"/>
+                                    <constraint firstAttribute="height" constant="50" id="juJ-1J-Lqd"/>
                                 </constraints>
                             </stackView>
                         </subviews>
@@ -145,7 +142,7 @@
                             <constraint firstItem="BKU-FK-BhM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QzH-hJ-242"/>
                             <constraint firstAttribute="trailing" secondItem="Ljr-1i-3EV" secondAttribute="trailing" constant="10" id="RIH-N7-ueJ"/>
                             <constraint firstItem="Ljr-1i-3EV" firstAttribute="top" secondItem="n5l-fr-Mdz" secondAttribute="bottom" constant="10" id="XrW-Zs-xOM"/>
-                            <constraint firstAttribute="bottom" secondItem="Ljr-1i-3EV" secondAttribute="bottom" constant="10" id="cKz-fk-D1h"/>
+                            <constraint firstAttribute="bottom" secondItem="Ljr-1i-3EV" secondAttribute="bottom" constant="50" id="cKz-fk-D1h"/>
                             <constraint firstAttribute="bottom" secondItem="BKU-FK-BhM" secondAttribute="bottom" id="k0h-PK-f7B"/>
                             <constraint firstItem="BKU-FK-BhM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="t8X-p8-GIN"/>
                             <constraint firstAttribute="trailing" secondItem="n5l-fr-Mdz" secondAttribute="trailing" constant="10" id="vPs-5o-95E"/>

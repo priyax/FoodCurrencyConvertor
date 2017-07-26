@@ -17,6 +17,7 @@
 		01AD15391F2851AA00EA417A /* FoodCurrencyConvertorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD15381F2851AA00EA417A /* FoodCurrencyConvertorTests.swift */; };
 		01AD15431F28625400EA417A /* GroceryItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD15421F28625400EA417A /* GroceryItem.swift */; };
 		01AD15451F2864CA00EA417A /* CurrencyExchangeRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AD15441F2864CA00EA417A /* CurrencyExchangeRate.swift */; };
+		01AD15471F2903D800EA417A /* groceryItems.json in Resources */ = {isa = PBXBuildFile; fileRef = 01AD15461F2903D800EA417A /* groceryItems.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		01AD153A1F2851AA00EA417A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		01AD15421F28625400EA417A /* GroceryItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GroceryItem.swift; sourceTree = "<group>"; };
 		01AD15441F2864CA00EA417A /* CurrencyExchangeRate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrencyExchangeRate.swift; sourceTree = "<group>"; };
+		01AD15461F2903D800EA417A /* groceryItems.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = groceryItems.json; path = ../groceryItems.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +89,12 @@
 			children = (
 				01AD151C1F26772200EA417A /* AppDelegate.swift */,
 				01AD151E1F26772200EA417A /* CurrencyViewController.swift */,
+				01AD15461F2903D800EA417A /* groceryItems.json */,
 				01AD15401F2861E500EA417A /* Data Objects */,
 				01AD15201F26772200EA417A /* Main.storyboard */,
 				01AD15231F26772300EA417A /* Assets.xcassets */,
 				01AD15251F26772300EA417A /* LaunchScreen.storyboard */,
 				01AD15281F26772300EA417A /* Info.plist */,
-				01AD15301F26934D00EA417A /* GroceryCellDelegate.swift */,
 				01AD15411F2861FE00EA417A /* Cells */,
 			);
 			path = FoodCurrencyConvertor;
@@ -119,6 +121,7 @@
 		01AD15411F2861FE00EA417A /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				01AD15301F26934D00EA417A /* GroceryCellDelegate.swift */,
 				01AD152E1F26783800EA417A /* GroceryCell.swift */,
 			);
 			name = Cells;
@@ -211,6 +214,7 @@
 			files = (
 				01AD15271F26772300EA417A /* LaunchScreen.storyboard in Resources */,
 				01AD15241F26772300EA417A /* Assets.xcassets in Resources */,
+				01AD15471F2903D800EA417A /* groceryItems.json in Resources */,
 				01AD15221F26772200EA417A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
