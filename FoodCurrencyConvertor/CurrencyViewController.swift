@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CurrencyViewController: UIViewController {
   
   
   //Outlet labels
@@ -18,21 +18,12 @@ class ViewController: UIViewController {
   @IBOutlet weak var tableView: UITableView!
   
   //Variables
-  struct GroceryItem {
-    var name: String
-    var price: Float
-    var qty: Int
-  }
   
-  struct CurrencyList {
-    var country: String
-    var rate: Float
-    
-  }
+
   var checkoutTotalUSD: Float = 0.0
   var currencyMultiplier: Float = 1.0
   var selectedCurrency = "USD"
-  var currencyData : [CurrencyList] = [CurrencyList(country:"USD",rate: 1.0)]
+  var currencyData : [CurrencyExchangeRate] = [CurrencyExchangeRate(currency:"USD",rate: 1.0)]
   var numberFormatter = NumberFormatter()
   
   var groceryList: [GroceryItem] = [GroceryItem(name:"Peas: $ 0,95 per bag",price: 0.95, qty: 0),GroceryItem(name:"Eggs: $ 2,10 per dozen",price: 2.10, qty: 0),GroceryItem(name:"Milk: $ 1,30 per bottle",price: 1.30, qty: 0),GroceryItem(name:"Beans: $ 0,73 per can",price: 0.73, qty: 0)]
@@ -62,7 +53,12 @@ class ViewController: UIViewController {
   
   // Action buttons
   @IBAction func checkoutBtn(_ sender: UIButton) {
-    self.totalLabel.text = String(format: " %.2f", checkoutTotalUSD * currencyMultiplier) + "  " + selectedCurrency
+    self.totalLabel.text = currencyConversion()  }
+  
+  //performs conversion of checkout basket
+  func currencyConversion() -> String {
+    let result = String(format: " %.2f", checkoutTotalUSD * currencyMultiplier) + "  " + selectedCurrency
+    return result
   }
   
   //gets updated currency list
@@ -97,11 +93,11 @@ class ViewController: UIViewController {
               let rateGBP = rateDictionary["USDGBP"] as! Float
               let ratePLN = rateDictionary["USDPLN"] as! Float
               
-              self.currencyData.append(CurrencyList(country: "AUD", rate: rateAUD))
-              self.currencyData.append(CurrencyList(country: "CHF", rate: rateCHF))
-              self.currencyData.append(CurrencyList(country: "EUR", rate: rateEUR))
-              self.currencyData.append(CurrencyList(country: "GBP", rate: rateGBP))
-              self.currencyData.append(CurrencyList(country: "PLN", rate: ratePLN))
+              self.currencyData.append(CurrencyExchangeRate(currency: "AUD", rate: rateAUD))
+              self.currencyData.append(CurrencyExchangeRate(currency: "CHF", rate: rateCHF))
+              self.currencyData.append(CurrencyExchangeRate(currency: "EUR", rate: rateEUR))
+              self.currencyData.append(CurrencyExchangeRate(currency: "GBP", rate: rateGBP))
+              self.currencyData.append(CurrencyExchangeRate(currency: "PLN", rate: ratePLN))
               
               DispatchQueue.main.async {
                 self.currencyPicker.reloadAllComponents()
@@ -124,7 +120,7 @@ class ViewController: UIViewController {
   
 }
 
-extension ViewController: UITableViewDataSource, UITableViewDelegate, GroceryCellDelegate {
+extension CurrencyViewController: UITableViewDataSource, UITableViewDelegate, GroceryCellDelegate {
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return  self.groceryList.count
@@ -166,7 +162,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate, GroceryCel
   }
 }
 
-extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
+extension CurrencyViewController: UIPickerViewDataSource, UIPickerViewDelegate {
   
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
     return 1
@@ -177,12 +173,12 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
   }
   
   func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-    return currencyData[row].country
+    return currencyData[row].currency
   }
   
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
     currencyMultiplier = currencyData[row].rate
-    selectedCurrency = currencyData[row].country
+    selectedCurrency = currencyData[row].currency
     print("The currency conversion rate = \(currencyMultiplier)")
   }
 }
