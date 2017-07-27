@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FoodCurrencyConvertor/CurrencyViewController.swift"
-            timestampString = "522820639.13997"
+            timestampString = "522823389.011361"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "142"
-            endingLineNumber = "142"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "loadCurrencyData()"
             landmarkType = "7">
          </BreakpointContent>

@@ -34,6 +34,8 @@ class CurrencyViewController: UIViewController {
     currencyPicker.delegate = self
     loadGroceryList()
     loadCurrencyData()
+    
+    //Get current conversion rates from API when app returns from background
     NotificationCenter.default.addObserver(self, selector: #selector(refreshRatesCall), name: NSNotification.Name.UIApplicationWillEnterForeground, object: nil)
   }
   
@@ -117,7 +119,7 @@ class CurrencyViewController: UIViewController {
   
   func loadCurrencyData() {
     
-    let url = URL(string: "http://www.apilayer.net/api/live?access_key=1d5f49755791b82322fc09165b2f1f97&currencies=AUD,CHF,EUR,GBP,PLN&format=1")!
+    let url = URL(string: "http://www.apilayer.net/api/live?access_key=1d5f49755791b82322fc09165b2f1f97&currencies=AUD,CHF,EUR,GBP,PLN,INR&format=1")!
     
     let session = URLSession.shared
     
@@ -152,6 +154,11 @@ class CurrencyViewController: UIViewController {
         
       } else {
         print("NSURLSession Error: \(String(describing: error))")
+        let alertController = UIAlertController(title: "Network error", message: String(describing: error?.localizedDescription), preferredStyle: .alert)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
       }
     })
     

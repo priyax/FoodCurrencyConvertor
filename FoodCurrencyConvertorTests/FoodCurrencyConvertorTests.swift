@@ -26,19 +26,12 @@ class FoodCurrencyConvertorTests: XCTestCase {
   
     
     func testInit() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+      //testing initialization of data and result of conversion
       let groceryItem = GroceryItem(name: "Milk", price: 1.30, qty: 1)
       let currencyExchange = CurrencyExchangeRate(currency: "EUR", rate: 1.1)
       
       XCTAssertEqual(groceryItem.price * currencyExchange.rate, 1.43)
     }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+  
     
 }
