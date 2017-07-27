@@ -12,14 +12,13 @@ class CurrencyViewController: UIViewController {
   
   
   //Outlet labels
-  @IBOutlet weak var currencyPicker: UIPickerView!
   
+  @IBOutlet weak var currencyPicker: UIPickerView!
   @IBOutlet weak var totalLabel: UILabel!
   @IBOutlet weak var tableView: UITableView!
   
   //Variables
   
-
   var checkoutTotalUSD: Float = 0.0
   var currencyMultiplier: Float = 1.0
   var selectedCurrency = "USD"
@@ -55,7 +54,8 @@ class CurrencyViewController: UIViewController {
   
   // Action buttons
   @IBAction func checkoutBtn(_ sender: UIButton) {
-    self.totalLabel.text = currencyConversion()  }
+    self.totalLabel.text = currencyConversion()
+  }
   
   //performs conversion of checkout basket
   func currencyConversion() -> String {
@@ -63,7 +63,7 @@ class CurrencyViewController: UIViewController {
     return result
   }
   
-  //loadGroceryList
+  // Read file from main bundle
   
   func readFileFromResources(fileName: String, fileType: String, encoding: String.Encoding = String.Encoding.utf8) -> String {
     
@@ -89,23 +89,28 @@ class CurrencyViewController: UIViewController {
     print("readFileFromResources failed on: \(fileName). File does not exist!")
     return  ""
   }
-
+  
+  //loadGroceryList from JSON file
+  
   func loadGroceryList() {
+    
     let jsonString = readFileFromResources(fileName: "groceryItems", fileType: ".json")
     let jsonData = jsonString.data(using: String.Encoding.utf8, allowLossyConversion: false)!
+    
     do {
-    let groceryArray = try JSONSerialization.jsonObject(with:jsonData, options: []) as! NSArray
-    for item in groceryArray {
-      let itemDictionary = item as! NSDictionary
-      let name = itemDictionary["name"] as! String
-      let price = itemDictionary["price"] as! Float
-      let qty = itemDictionary["qty"] as! Int
+      let groceryArray = try JSONSerialization.jsonObject(with:jsonData, options: []) as! NSArray
       
-      groceryList.append(GroceryItem(name: name, price: price, qty: qty))
-    }
-    }catch {
-       print("Serialization error")
+      for item in groceryArray {
+        let itemDictionary = item as! NSDictionary
+        let name = itemDictionary["name"] as! String
+        let price = itemDictionary["price"] as! Float
+        let qty = itemDictionary["qty"] as! Int
+        
+        groceryList.append(GroceryItem(name: name, price: price, qty: qty))
       }
+    } catch {
+      print("Serialization error")
+    }
   }
   
   //gets updated currency list
@@ -127,11 +132,12 @@ class CurrencyViewController: UIViewController {
           print("source = \(source)")
           
           let quotesDict = (jsonDict["quotes"] as? NSDictionary)!
-        
+          
           
           for (key, value) in quotesDict {
             print("\(key as! String) = \(value as! Float)")
             var key = key as! String
+            //Remove USD prefixes of currencies
             key = key.replacingOccurrences(of: "USD", with: "")
             self.currencyData.append(CurrencyExchangeRate(currency: key, rate: value as! Float))
           }
@@ -139,7 +145,7 @@ class CurrencyViewController: UIViewController {
           DispatchQueue.main.async {
             self.currencyPicker.reloadAllComponents()
           }
-
+          
         } catch {
           print("NSData or NSJSONSerialization Error: \(error)")
         }
