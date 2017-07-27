@@ -19,7 +19,7 @@ class CurrencyViewController: UIViewController {
   
   //Variables
   
-  var checkoutTotalUSD: Float = 0.0
+  var checkoutTotalUSD: Float = 0.00
   var currencyMultiplier: Float = 1.0
   var selectedCurrency = "USD"
   var currencyData : [CurrencyExchangeRate] = [CurrencyExchangeRate(currency: "USD", rate: 1.0)]
@@ -57,6 +57,15 @@ class CurrencyViewController: UIViewController {
   // Action buttons
   @IBAction func checkoutBtn(_ sender: UIButton) {
     self.totalLabel.text = currencyConversion()
+  }
+  @IBAction func clearAll(_ sender: UIButton) {
+    
+    self.checkoutTotalUSD = 0.00
+    self.totalLabel.text = "0.00"
+    for item in groceryList {
+    item.qty = 0
+    }
+    tableView.reloadData()
   }
   
   //performs conversion of checkout basket

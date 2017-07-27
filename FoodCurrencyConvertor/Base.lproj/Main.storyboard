@@ -25,8 +25,18 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="BKU-FK-BhM">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
+                            <pickerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iz0-Ii-0g9" userLabel="currencyPicker">
+                                <rect key="frame" x="10" y="542" width="355" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="lYs-c1-0EF"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="a3Y-6H-qHD"/>
+                                </connections>
+                            </pickerView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="n5l-fr-Mdz">
-                                <rect key="frame" x="10" y="50" width="355" height="507"/>
+                                <rect key="frame" x="10" y="50" width="355" height="482"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="groceryCell" rowHeight="80" id="Ygb-Rg-cUN" customClass="GroceryCell" customModule="FoodCurrencyConvertor" customModuleProvider="target">
@@ -100,29 +110,19 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="cWd-3a-h61"/>
                                 </connections>
                             </tableView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Ljr-1i-3EV">
-                                <rect key="frame" x="10" y="567" width="355" height="50"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Ljr-1i-3EV">
+                                <rect key="frame" x="10" y="597" width="300" height="50"/>
                                 <subviews>
-                                    <pickerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iz0-Ii-0g9" userLabel="currencyPicker">
-                                        <rect key="frame" x="0.0" y="0.0" width="118.5" height="50"/>
-                                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="BYZ-38-t0r" id="a3Y-6H-qHD"/>
-                                        </connections>
-                                    </pickerView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zNU-0Z-AQn" userLabel="checkoutBtn">
-                                        <rect key="frame" x="118.5" y="1" width="118" height="48"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="150" height="50"/>
                                         <state key="normal" image="checkout"/>
                                         <connections>
                                             <action selector="checkoutBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JHX-0O-16X"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="XKD-eC-3KC" userLabel="totalLabel">
-                                        <rect key="frame" x="236.5" y="0.0" width="118.5" height="50"/>
+                                        <rect key="frame" x="150" y="0.0" width="150" height="50"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="TBW-hs-wfB"/>
-                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -132,20 +132,37 @@
                                     <constraint firstAttribute="height" constant="50" id="juJ-1J-Lqd"/>
                                 </constraints>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Bu-Nm-irh" userLabel="clearBtn">
+                                <rect key="frame" x="315" y="597" width="50" height="50"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="4eH-p5-W2H"/>
+                                    <constraint firstAttribute="width" constant="50" id="niz-hV-1EP"/>
+                                </constraints>
+                                <state key="normal" image="clear"/>
+                                <connections>
+                                    <action selector="clearAll:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CVS-uW-QTN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="iz0-Ii-0g9" firstAttribute="top" secondItem="n5l-fr-Mdz" secondAttribute="bottom" constant="10" id="3jV-YQ-Cyg"/>
                             <constraint firstItem="n5l-fr-Mdz" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="CaR-hq-Ela"/>
+                            <constraint firstItem="Ljr-1i-3EV" firstAttribute="top" secondItem="iz0-Ii-0g9" secondAttribute="bottom" constant="5" id="Fie-f3-T7p"/>
                             <constraint firstItem="n5l-fr-Mdz" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="Gin-9U-pb9"/>
-                            <constraint firstItem="Ljr-1i-3EV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="IQx-I1-ZLZ"/>
                             <constraint firstAttribute="trailing" secondItem="BKU-FK-BhM" secondAttribute="trailing" id="NeZ-BZ-f67"/>
+                            <constraint firstAttribute="trailing" secondItem="iz0-Ii-0g9" secondAttribute="trailing" constant="10" id="OfL-en-PV2"/>
                             <constraint firstItem="BKU-FK-BhM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="QzH-hJ-242"/>
-                            <constraint firstAttribute="trailing" secondItem="Ljr-1i-3EV" secondAttribute="trailing" constant="10" id="RIH-N7-ueJ"/>
-                            <constraint firstItem="Ljr-1i-3EV" firstAttribute="top" secondItem="n5l-fr-Mdz" secondAttribute="bottom" constant="10" id="XrW-Zs-xOM"/>
-                            <constraint firstAttribute="bottom" secondItem="Ljr-1i-3EV" secondAttribute="bottom" constant="50" id="cKz-fk-D1h"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="2Bu-Nm-irh" secondAttribute="bottom" constant="20" id="TH2-nR-OMo"/>
+                            <constraint firstAttribute="bottom" secondItem="Ljr-1i-3EV" secondAttribute="bottom" constant="20" id="cKz-fk-D1h"/>
+                            <constraint firstItem="Ljr-1i-3EV" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="fDL-pP-fEo"/>
+                            <constraint firstItem="2Bu-Nm-irh" firstAttribute="leading" secondItem="Ljr-1i-3EV" secondAttribute="trailing" constant="5" id="h9p-BL-ylM"/>
                             <constraint firstAttribute="bottom" secondItem="BKU-FK-BhM" secondAttribute="bottom" id="k0h-PK-f7B"/>
                             <constraint firstItem="BKU-FK-BhM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="t8X-p8-GIN"/>
                             <constraint firstAttribute="trailing" secondItem="n5l-fr-Mdz" secondAttribute="trailing" constant="10" id="vPs-5o-95E"/>
+                            <constraint firstAttribute="trailing" secondItem="2Bu-Nm-irh" secondAttribute="trailing" constant="10" id="zGB-BH-Z8j"/>
+                            <constraint firstItem="iz0-Ii-0g9" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="10" id="zxX-CT-qIy"/>
                         </constraints>
                     </view>
                     <connections>
@@ -164,5 +181,6 @@
         <image name="-" width="16" height="3"/>
         <image name="bg" width="375" height="667"/>
         <image name="checkout" width="168" height="48"/>
+        <image name="clear" width="26" height="22"/>
     </resources>
 </document>
